@@ -1,7 +1,7 @@
 import { Badge, Box, Button, Flex, Heading, Tabs, Text } from "@radix-ui/themes";
 import axios from "axios";
 import Link from "next/link";
-import { FaPlay } from "react-icons/fa";
+import { FaCalendar, FaPlay } from "react-icons/fa";
 
 export async function getStaticPaths() {
   const response = await axios.get("http://localhost:3000/api/movies");
@@ -60,11 +60,23 @@ export default function Movie({ movie }) {
         </Tabs.List>
 
         <Box pt="3">
-          {movie.episodes.map((seasons, index) => (
-            <Tabs.Content key={index} value={`${index}`}>
+          {movie.episodes.map((seasons, seasonIndex) => (
+            <Tabs.Content key={seasonIndex} value={`${seasonIndex}`} className="space-y-2">
               {seasons.map((episode, index) => (
-                <Flex key={index}>
-                  {episode.name}
+                <Flex className="bg-[#18191b] border border-[#2c2f33] hover:border-white transition-all h-32 duration-200 cursor-pointer rounded" p={"1"} key={index} >
+                  
+                  <Flex mt={"1"} mx={"2"} direction={"column"} justify={"between"}>
+                    <Flex direction={"column"}>
+                      <Heading>S{seasonIndex + 1} B{index + 1} - {episode.name}</Heading>
+                      <Text color="gray" className="line-clamp-2">{episode.description}</Text>
+                    </Flex>
+
+                    <Flex gap={"2"} mt={"1"}>
+                      <Text color="gray"> {new Date(episode.date).toLocaleDateString("tr", { dateStyle: "long" })}</Text>
+                      <Text color="gray">●</Text>
+                      <Text color="gray"> {episode.source}</Text>
+                    </Flex>
+                  </Flex>
                 </Flex>
               ))}
             </Tabs.Content>

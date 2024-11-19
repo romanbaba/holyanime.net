@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    body {
+        scrollbar-width: thin;
+    }
+
+    ::-webkit-scrollbar {
+        @apply w-1 bg-transparent
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-[#ccc] rounded-xl hover:bg-[#fafafa]
+    }
+}

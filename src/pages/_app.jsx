@@ -9,7 +9,7 @@ import { SessionProvider } from "next-auth/react";
 export default function App({ Component, pageProps: { session, ...pageProps } }) {
   return (
    <SessionProvider session={session}>
-     <Theme>
+     <Theme className="pb-2">
       <Sidebar />
         <div className="w-full sm:pl-[22rem] overflow-hidden mr-12">
           <Navbar />

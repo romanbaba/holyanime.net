@@ -1,8 +1,5 @@
+import { Error } from "@/pages/components/Error";
 
 export default function NotFound() {
-  return (
-    <div>
-      404 error
-    </div>
-  );
+  return <Error message="Aradığınız sayfa bulunamadı." />;
 }

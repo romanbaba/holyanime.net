@@ -2,7 +2,7 @@ import { getMovies } from "@/functions/movies.js";
 import { SWR } from "@/functions/swr.js";
 import { Autocomplete, AutocompleteItem, Skeleton } from "@nextui-org/react";
 
-export default function NavbarAutocomplete() {
+export default function _Autocomplete() {
   /** @type {import("swr").SWRResponse<import("@/pages/api/movies").ResponseData[]>} */
   const { isLoading, data } = SWR("/api/movies");
   const { movies } = getMovies(isLoading ? [] : data);

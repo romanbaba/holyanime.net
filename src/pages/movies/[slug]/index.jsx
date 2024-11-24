@@ -1,6 +1,6 @@
 import { getMovie } from "@/functions/movies.js";
 import { SWR } from "@/functions/swr.js";
-import Comments from "@/pages/components/comments.jsx";
+import Comments from "@/pages/components/Comments";
 import PreviewMovie from "@/pages/components/preview-movie.jsx";
 import SeasonBar from "@/pages/components/season-bar.jsx";
 import { useParams } from "next/navigation";

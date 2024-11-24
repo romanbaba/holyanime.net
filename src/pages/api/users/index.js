@@ -25,6 +25,6 @@ export default async function hanlder(req, res) {
   }
 
   if ((req.method && req.method === "GET")) {
-    res.send({ success: true, users });
+    res.send(users);
   }
 }

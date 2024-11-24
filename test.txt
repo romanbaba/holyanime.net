@@ -1,14 +1,18 @@
 import { Badge, Box, Button, Flex, Heading, Tabs, Text } from "@radix-ui/themes";
 import axios from "axios";
 import Link from "next/link";
-import { FaCalendar, FaPlay } from "react-icons/fa";
+import { FaPlay } from "react-icons/fa";
 
 export async function getStaticPaths() {
   const response = await axios.get("http://localhost:3000/api/movies");
+  /** @type {import("@/pages/api/movies").ResponseData[]} */
   const movies = response.data;
 
   const paths = movies.map((movie) => ({
-    params: { id: movie.id.toString() }, 
+    params: {
+      id: movie.id.toString(),
+      epid: "sa"
+    }, 
   }));
 
   return { paths, fallback: false };
